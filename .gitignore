@@ -2,4 +2,4 @@ build/
 chatbot_olymbaid.egg-info/
 __pycache__/
 dist/
-.env
+*.env
