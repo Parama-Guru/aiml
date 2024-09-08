@@ -1,7 +1,3 @@
-from langchain_core.output_parsers import StrOutputParser
-from langchain_core.prompts import ChatPromptTemplate
-from Chatbot_olymbaid.model_api import load_embedding_model
-from Chatbot_olymbaid.db_connect import connect_pineconedb
 from exception import customexception
 import sys
 def result_pinecone(query,embedding_model,index):

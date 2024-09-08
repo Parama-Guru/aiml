@@ -1,5 +1,4 @@
 from bson.objectid import ObjectId
-from Chatbot_olymbaid.db_connect import connect_mongodb
 from exception import customexception
 import sys
 

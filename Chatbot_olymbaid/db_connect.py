@@ -7,14 +7,11 @@ from exception import customexception
 import sys
 load_dotenv()
 PINECONE_API_KEY=os.getenv("PINECONE_API_KEY")
-
 def connect_mongodb():
     try:
         uri = "mongodb+srv://paramaguruvh:Guru1910@cluster0.m5ten.mongodb.net/database?retryWrites=true&w=majority&appName=Cluster0"
-
         # Create a new client and connect to the server
         client = MongoClient(uri, server_api=ServerApi('1'))
-
         # Send a ping to confirm a successful connection
         try:
             client.admin.command('ping')
@@ -36,6 +33,5 @@ def connect_pineconedb():
     except Exception as e:
         raise customexception(e,sys)
 
-if __name__=="__main__":
-    connect_mongodb()
-    connect_pineconedb()
+
+ 
