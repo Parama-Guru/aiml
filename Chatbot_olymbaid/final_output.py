@@ -5,7 +5,7 @@ import sys
 
 def refined_query(query,chat_model):
     try:
-        prompt_text_refined=f"Query: {query}\n use the query to form a question which gets embedded to get relevant information "
+        prompt_text_refined=f"Query: {query}\n use the query to form a question which gets embedded to get relevant information and images,so the question must include a key word image. "
         prompt_chat=ChatPromptTemplate.from_template(prompt_text_refined) 
         summarize_chain_refined = {"query": lambda x: query} | prompt_chat | chat_model | StrOutputParser()
         refined__query=summarize_chain_refined.invoke(query) 

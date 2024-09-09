@@ -12,7 +12,8 @@ from io import BytesIO
 import os
 import shutil
 import atexit
-
+a=1
+# the internet must not be connected to psg if so it shows error in the connection with the mongo server
 def sample(embedding_model,index,collection,chat_model):
     st.markdown(
         """
@@ -64,10 +65,11 @@ def sample(embedding_model,index,collection,chat_model):
                 result_p = result_pinecone(query,embedding_model,index)
             else:
             #     query=refined_query(user_question,img_summary,chat_model)
-                query=img_output()
+                user_question=img_output()
+                query=refined_query(user_question,chat_model)
                 result_p = result_pinecone(query,embedding_model,index)
             result_m , images=result_mongo(result_p,collection)
-            response=final_result(result_m,query,chat_model)
+            response=final_result(result_m,user_question,chat_model)
             st.write(response)
             #st.write(query)
             for image in images:
@@ -76,5 +78,7 @@ def sample(embedding_model,index,collection,chat_model):
                 st.image(imagee, caption='Image', use_column_width=True)
 
 if __name__=="__main__":
-    embedding_model,index,collection,chat_model=elements()
+    if a==1:
+        embedding_model,index,collection,chat_model=elements()
+        a+=1
     sample(embedding_model,index,collection,chat_model)

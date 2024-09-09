@@ -8,5 +8,6 @@ langchain-google-genai
 langchain-anthropic
 export
 streamlit
-langchain-
+langsmith
+jupyter notebook
 - e.
